@@ -1,373 +1,58 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Melanie | Inicio</title>
-    <meta name="description" content="Página de inicio moderna y elegante construida con HTML y CSS.">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;800&display=swap" rel="stylesheet">
-    <style>
-        :root {
-            --bg-color: #0f172a; /* Dark slate */
-            --text-color: #f8fafc;
-            --primary-color: #3b82f6; /* Blue */
-            --secondary-color: #8b5cf6; /* Purple */
-            --accent-color: #10b981; /* Emerald */
-            --glass-bg: rgba(15, 23, 42, 0.7);
-        }
-
-        * {
-            margin: 0;
-            padding: 0;
-            box-sizing: border-box;
-            font-family: 'Inter', sans-serif;
-        }
-
-        body {
-            background-color: var(--bg-color);
-            color: var(--text-color);
-            line-height: 1.6;
-            overflow-x: hidden;
-            scroll-behavior: smooth;
-        }
-
-        /* Navbar - Glassmorphism */
-        header {
-            padding: 1.5rem 5%;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            position: fixed;
-            width: 100%;
-            top: 0;
-            z-index: 1000;
-            backdrop-filter: blur(12px);
-            -webkit-backdrop-filter: blur(12px);
-            background: var(--glass-bg);
-            border-bottom: 1px solid rgba(255, 255, 255, 0.05);
-            transition: all 0.3s ease;
-        }
-
-        .logo {
-            font-size: 1.8rem;
-            font-weight: 800;
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            letter-spacing: -1px;
-            cursor: pointer;
-        }
-
-        nav ul {
-            display: flex;
-            list-style: none;
-            gap: 2.5rem;
-        }
-
-        nav a {
-            color: #cbd5e1;
-            text-decoration: none;
-            font-weight: 600;
-            font-size: 0.95rem;
-            transition: color 0.3s ease;
-            position: relative;
-        }
-
-        nav a:hover {
-            color: white;
-        }
-
-        nav a::after {
-            content: '';
-            position: absolute;
-            width: 0;
-            height: 2px;
-            bottom: -5px;
-            left: 0;
-            background: linear-gradient(90deg, var(--primary-color), var(--secondary-color));
-            transition: width 0.3s ease;
-        }
-
-        nav a:hover::after {
-            width: 100%;
-        }
-
-        /* Hero Section */
-        .hero {
-            min-height: 100vh;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            text-align: center;
-            padding: 0 20px;
-            position: relative;
-        }
-
-        /* Magic Glow Background Effect */
-        .hero::before {
-            content: '';
-            position: absolute;
-            width: 50vw;
-            height: 50vw;
-            background: radial-gradient(circle, rgba(139, 92, 246, 0.2) 0%, transparent 60%);
-            top: 50%;
-            left: 50%;
-            transform: translate(-50%, -50%);
-            opacity: 0.8;
-            z-index: -1;
-            filter: blur(80px);
-        }
-
-        .hero h1 {
-            font-size: clamp(3rem, 8vw, 5.5rem);
-            font-weight: 800;
-            line-height: 1.1;
-            margin-bottom: 1.5rem;
-            letter-spacing: -2px;
-        }
-
-        .hero h1 span {
-            background: linear-gradient(135deg, #60a5fa, #c084fc, #34d399);
-            -webkit-background-clip: text;
-            -webkit-text-fill-color: transparent;
-            background-size: 200% auto;
-            animation: textShine 5s linear infinite;
-        }
-
-        @keyframes textShine {
-            0% { background-position: 0% center; }
-            100% { background-position: 200% center; }
-        }
-
-        .hero p {
-            font-size: clamp(1rem, 2vw, 1.25rem);
-            max-width: 600px;
-            color: #94a3b8;
-            margin-bottom: 3rem;
-        }
-
-        /* Buttons */
-        .cta-buttons {
-            display: flex;
-            gap: 1.5rem;
-            flex-wrap: wrap;
-            justify-content: center;
-        }
-
-        .btn {
-            padding: 0.9rem 2.5rem;
-            border-radius: 50px;
-            font-weight: 600;
-            text-decoration: none;
-            transition: all 0.3s ease;
-            font-size: 1rem;
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-        }
-
-        .btn-primary {
-            background: linear-gradient(135deg, var(--primary-color), var(--secondary-color));
-            color: white;
-            box-shadow: 0 10px 25px -5px rgba(59, 130, 246, 0.4);
-            border: 1px solid transparent;
-        }
-
-        .btn-primary:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 15px 30px -5px rgba(59, 130, 246, 0.6);
-        }
-
-        .btn-secondary {
-            background: rgba(255, 255, 255, 0.03);
-            color: white;
-            border: 1px solid rgba(255, 255, 255, 0.1);
-            backdrop-filter: blur(10px);
-        }
-
-        .btn-secondary:hover {
-            background: rgba(255, 255, 255, 0.1);
-            transform: translateY(-3px);
-            border-color: rgba(255, 255, 255, 0.2);
-        }
-
-        /* Features Section */
-        .features {
-            padding: 8rem 5%;
-            background: #0b1120;
-            position: relative;
-        }
-
-        .section-title {
-            text-align: center;
-            font-size: clamp(2rem, 4vw, 3rem);
-            margin-bottom: 4rem;
-            font-weight: 800;
-        }
-
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-            gap: 2.5rem;
-            max-width: 1200px;
-            margin: 0 auto;
-        }
-
-        .card {
-            background: rgba(255, 255, 255, 0.02);
-            border: 1px solid rgba(255, 255, 255, 0.05);
-            border-radius: 24px;
-            padding: 3rem 2rem;
-            transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-            position: relative;
-            overflow: hidden;
-            display: flex;
-            flex-direction: column;
-            align-items: flex-start;
-        }
-
-        .card:hover {
-            transform: translateY(-10px);
-            background: rgba(255, 255, 255, 0.04);
-            border-color: rgba(255, 255, 255, 0.1);
-            box-shadow: 0 20px 40px rgba(0, 0, 0, 0.3);
-        }
-
-        .card-icon {
-            width: 50px;
-            height: 50px;
-            border-radius: 14px;
-            background: rgba(59, 130, 246, 0.1);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            margin-bottom: 1.5rem;
-            color: var(--primary-color);
-            font-size: 1.5rem;
-            border: 1px solid rgba(59, 130, 246, 0.2);
-        }
-
-        .card h3 {
-            font-size: 1.5rem;
-            margin-bottom: 1rem;
-            color: #fff;
-        }
-
-        .card p {
-            color: #94a3b8;
-            font-size: 1rem;
-            line-height: 1.7;
-        }
-
-        /* Entry Animations */
-        @keyframes fadeInUp {
-            from {
-                opacity: 0;
-                transform: translateY(40px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
-        }
-
-        .animate-up {
-            animation: fadeInUp 1s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-        }
-
-        .delay-1 { animation-delay: 0.1s; opacity: 0; }
-        .delay-2 { animation-delay: 0.3s; opacity: 0; }
-        .delay-3 { animation-delay: 0.5s; opacity: 0; }
-
-        /* Responsive */
-        @media (max-width: 768px) {
-            nav ul {
-                display: none; /* Mobile menu would go here */
-            }
-        }
-    </style>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Melanie | Inicio</title>
+  <meta name="description" content="Espacio personal con recuerdos, gustos, notas y canciones." />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="assets/css/style.css" />
 </head>
 <body>
+  <header class="site-header">
+    <div class="container nav-wrap">
+      <a href="index.html" class="brand">Melanie • recuerdos</a>
+      <nav aria-label="principal">
+        <ul class="nav-links">
+          <li><a href="index.html">Inicio</a></li>
+          <li><a href="pages/recuerdos.html">Recuerdos</a></li>
+          <li><a href="pages/gustos.html">Gustos</a></li>
+          <li><a href="pages/notas.html">Notas</a></li>
+          <li><a href="pages/canciones.html">Canciones</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-    <header>
-        <div class="logo">Melanie</div>
-        <nav>
-            <ul>
-                <li><a href="#inicio">Inicio</a></li>
-                <li><a href="#caracteristicas">Características</a></li>
-                <li><a href="#proyectos">Proyectos</a></li>
-                <li><a href="#contacto">Contacto</a></li>
-            </ul>
-        </nav>
-    </header>
+  <main>
+    <div class="container">
+      <section class="hero">
+        <h1>Un rincón personal, cálido y aesthetic para guardar lo que importa.</h1>
+        <p>
+          Dejé una base limpia y ordenada para que puedas ir agregando fotos, frases, playlists y notas.
+          Tomé inspiración en tu estilo: tonos oscuros, café, lectura, música y recuerdos en formato íntimo.
+        </p>
+      </section>
 
-    <section class="hero" id="inicio">
-        <h1 class="animate-up">Bienvenido a <span>Melanie</span></h1>
-        <p class="animate-up delay-1">Construyendo experiencias digitales modernas, rápidas y bellamente diseñadas para el futuro de la web.</p>
-        <div class="cta-buttons animate-up delay-2">
-            <a href="#caracteristicas" class="btn btn-primary">Descubrir Más</a>
-            <a href="#proyectos" class="btn btn-secondary">Ver Proyectos</a>
-        </div>
-    </section>
+      <section class="grid cols-2">
+        <article class="card">
+          <h2>Estructura nueva</h2>
+          <p class="note">Separé estilos, scripts y páginas para que sea fácil de mantener y ampliar.</p>
+        </article>
+        <article class="card">
+          <h2>Siguiente paso</h2>
+          <p class="note">Cuando quieras, conectamos una galería real y un reproductor de Spotify/YouTube.</p>
+        </article>
+      </section>
+    </div>
+  </main>
 
-    <section class="features" id="caracteristicas">
-        <h2 class="section-title">¿Por qué elegirnos?</h2>
-        <div class="grid">
-            <div class="card reveal">
-                <div class="card-icon">✨</div>
-                <h3>Diseño Moderno</h3>
-                <p>Interfaces estéticas con animaciones fluidas, paletas de colores cuidadosamente seleccionadas y un enfoque centrado en la experiencia del usuario.</p>
-            </div>
-            <div class="card reveal">
-                <div class="card-icon">⚡</div>
-                <h3>Rendimiento Óptimo</h3>
-                <p>Código limpio y optimizado para garantizar tiempos de carga ultrarrápidos y una navegación sin interrupciones en cualquier dispositivo.</p>
-            </div>
-            <div class="card reveal">
-                <div class="card-icon">📱</div>
-                <h3>Responsivo al 100%</h3>
-                <p>Tu sitio web se verá increíble ya sea en un monitor ultrapanorámico, una laptop, una tablet o un teléfono móvil.</p>
-            </div>
-        </div>
-    </section>
+  <footer class="container footer">
+    Hecho con cariño para tu proyecto personal.
+  </footer>
 
-    <script>
-        // Scroll Animation Observer for feature cards
-        const observerOptions = {
-            root: null,
-            rootMargin: '0px',
-            threshold: 0.1
-        };
-
-        const observer = new IntersectionObserver((entries, observer) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    entry.target.style.animation = `fadeInUp 0.8s cubic-bezier(0.16, 1, 0.3, 1) forwards`;
-                    entry.target.style.opacity = '1';
-                    observer.unobserve(entry.target);
-                }
-            });
-        }, observerOptions);
-
-        document.querySelectorAll('.reveal').forEach((element, index) => {
-            element.style.opacity = '0';
-            element.style.transform = 'translateY(40px)';
-            element.style.animationDelay = `${index * 0.15}s`;
-            observer.observe(element);
-        });
-
-        // Add a simple scroll effect to header
-        window.addEventListener('scroll', () => {
-            const header = document.querySelector('header');
-            if (window.scrollY > 50) {
-                header.style.padding = '1rem 5%';
-                header.style.background = 'rgba(15, 23, 42, 0.9)';
-            } else {
-                header.style.padding = '1.5rem 5%';
-                header.style.background = 'rgba(15, 23, 42, 0.7)';
-            }
-        });
-    </script>
+  <script src="assets/js/main.js" defer></script>
 </body>
 </html>
