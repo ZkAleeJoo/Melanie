@@ -45,10 +45,21 @@
             ser alguien mejor.
           </p>
 
-          <audio controls class="aesthetic-player">
-            <source src="../assets/audio/Shawn Mendes - Treat You Better.mp3" type="audio/mpeg">
-            Tu navegador no soporta el audio.
-          </audio>
+          <div class="custom-audio-player" id="player-shawn">
+            <audio id="audio-shawn">
+              <source src="../assets/audio/Shawn Mendes - Treat You Better.mp3" type="audio/mpeg">
+            </audio>
+
+            <div class="player-controls">
+              <button class="play-btn" onclick="togglePlay('audio-shawn', this)">
+                <span class="play-icon">&#9658;</span> </button>
+
+              <input type="range" class="seek-bar" value="0" step="0.1" oninput="seekAudio('audio-shawn', this)">
+
+              <span class="time-display current-time">0:00</span> /
+              <span class="time-display total-duration">0:00</span>
+            </div>
+          </div>
         </li>
         <li>Las Gomitas, cuando estas nerviosa, ansiosa, las gomitas te calman, es algo muy bonito, teniendo en cuenta
           que tu caracter no van en nada con las gomitas jajaja. Te quiero okey</li>

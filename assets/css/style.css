@@ -282,3 +282,89 @@ main {
 .aesthetic-player:hover {
   opacity: 1;
 }
+
+/* --- ESTILOS DEL REPRODUCTOR PERSONALIZADO --- */
+
+.custom-audio-player {
+  background: rgba(245, 235, 224, 0.08);
+  /* Fondo semi-transparente como el de la imagen de referencia */
+  border-radius: 16px;
+  padding: 1rem;
+  margin-top: 1.5rem;
+  backdrop-filter: blur(10px);
+  border: 1px solid var(--line);
+  box-shadow: var(--shadow);
+}
+
+.player-controls {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+/* El botón de Play Aesthetic */
+.play-btn {
+  background-color: #fff;
+  /* Fondo blanco puro */
+  border: none;
+  width: 45px;
+  height: 45px;
+  border-radius: 50%;
+  /* Lo hace redondo */
+  cursor: pointer;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.3);
+  transition: transform 0.2s ease, box-shadow 0.2s ease;
+}
+
+.play-btn:hover {
+  transform: scale(1.05);
+  /* Se agranda un poco al pasar el mouse */
+  box-shadow: 0 6px 15px rgba(212, 163, 115, 0.4);
+  /* Sombra de color caramelo */
+}
+
+/* El icono dentro del botón */
+.play-icon {
+  color: var(--bg);
+  /* Color oscuro del fondo de la página para el icono */
+  font-size: 1.3rem;
+  margin-left: 3px;
+  /* Pequeño ajuste para centrar visualmente el triángulo */
+}
+
+/* La barra de progreso */
+.seek-bar {
+  flex-grow: 1;
+  /* Ocupa el espacio restante */
+  -webkit-appearance: none;
+  appearance: none;
+  background: rgba(255, 255, 255, 0.2);
+  /* Pista de la barra */
+  height: 6px;
+  border-radius: 5px;
+  outline: none;
+  cursor: pointer;
+}
+
+/* El "puntero" de la barra */
+.seek-bar::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--accent);
+  /* Color caramelo */
+  cursor: pointer;
+  border: 2px solid #fff;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+}
+
+/* Tiempos */
+.time-display {
+  color: var(--muted);
+  font-size: 0.9rem;
+}

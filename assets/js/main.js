@@ -81,3 +81,68 @@
 
   loadSavedPhotos();
 })();
+
+// Función para reproducir/pausar un audio específico
+function togglePlay(audioId, btn) {
+  const audio = document.getElementById(audioId);
+  const playIcon = btn.querySelector('.play-icon');
+
+  // Pausar cualquier otro audio que esté sonando
+  document.querySelectorAll('audio').forEach(otherAudio => {
+    if (otherAudio.id !== audioId && !otherAudio.paused) {
+      otherAudio.pause();
+      const otherBtn = otherAudio.closest('.custom-audio-player').querySelector('.play-btn');
+      otherBtn.querySelector('.play-icon').innerHTML = '&#9658;'; // Cambiar icono a Play ▶
+    }
+  });
+
+  if (audio.paused) {
+    audio.play();
+    playIcon.innerHTML = '&#10074;&#10074;'; // Cambiar icono a Pausa ||
+  } else {
+    audio.pause();
+    playIcon.innerHTML = '&#9658;'; // Cambiar icono a Play ▶
+  }
+}
+
+// Función para adelantar/atrasar el audio con la barra
+function seekAudio(audioId, seekBar) {
+  const audio = document.getElementById(audioId);
+  const seekTo = audio.duration * (seekBar.value / 100);
+  audio.currentTime = seekTo;
+}
+
+// Actualizar la barra de progreso y el tiempo actual
+document.querySelectorAll('.custom-audio-player').forEach(player => {
+  const audio = player.querySelector('audio');
+  const seekBar = player.querySelector('.seek-bar');
+  const currentTimeDisplay = player.querySelector('.current-time');
+  const totalDurationDisplay = player.querySelector('.total-duration');
+
+  // Actualizar duración total cuando se cargue el audio
+  audio.addEventListener('loadedmetadata', () => {
+    totalDurationDisplay.textContent = formatTime(audio.duration);
+  });
+
+  // Actualizar barra y tiempo actual mientras se reproduce
+  audio.addEventListener('timeupdate', () => {
+    const progress = (audio.currentTime / audio.duration) * 100;
+    seekBar.value = progress;
+    currentTimeDisplay.textContent = formatTime(audio.currentTime);
+  });
+
+  // Resetear al terminar
+  audio.addEventListener('ended', () => {
+    player.querySelector('.play-icon').innerHTML = '&#9658;'; // Volver a icono de Play ▶
+    seekBar.value = 0;
+    currentTimeDisplay.textContent = '0:00';
+  });
+});
+
+// Función auxiliar para formatear segundos en M:SS
+function formatTime(seconds) {
+  let minutes = Math.floor(seconds / 60);
+  let partSeconds = Math.floor(seconds % 60);
+  if (partSeconds < 10) { partSeconds = `0${partSeconds}`; }
+  return `${minutes}:${partSeconds}`;
+}
