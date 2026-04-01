@@ -1,18 +1,21 @@
 :root {
-  --bg: #fcf9f5;
-  /* Crema suave */
-  --card: rgba(255, 255, 255, 0.65);
-  --line: rgba(230, 218, 205, 0.8);
-  --text: #4a3f35;
-  /* Marrón oscuro muy elegante */
-  --muted: #8c7d70;
-  /* Taupe cálido */
-  --accent: #c47b59;
-  /* Terracota / Ladrillo suave */
-  --accent-soft: #e3bc9a;
-  /* Arena cálida */
-  --shadow: 0 12px 40px rgba(196, 123, 89, 0.12);
-  /* Sombra en tono terracota muy tenue */
+  /* Paleta "Coffee Aesthetic" (Dark Mode Elegante) */
+  --bg: #1f1612;
+  /* Fondo color café espresso muy oscuro */
+  --card: rgba(245, 235, 224, 0.04);
+  /* Cristal ahumado con un levísimo toque crema */
+  --line: rgba(212, 163, 115, 0.25);
+  /* Líneas color caramelo suave */
+  --text: #f5ebe0;
+  /* Texto color espuma de leche (casi blanco, pero cálido) */
+  --muted: #a89585;
+  /* Texto secundario color café con leche */
+  --accent: #d4a373;
+  /* Tono avellana / caramelo principal */
+  --accent-soft: #faedcd;
+  /* Tono más claro para detalles sutiles */
+  --shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
+  /* Sombra más oscura para dar profundidad */
 }
 
 * {
@@ -44,18 +47,18 @@ h3,
   font-weight: 700;
 }
 
-/* Animación de fondo estilo "Golden Hour" */
+/* Animación de fondo: Luces tenues color caramelo ahumado */
 .bg-animation {
   position: fixed;
   inset: -20vmax;
   pointer-events: none;
   z-index: 0;
   background:
-    radial-gradient(circle at 15% 50%, rgba(227, 188, 154, 0.4), transparent 40%),
-    radial-gradient(circle at 85% 30%, rgba(212, 163, 115, 0.3), transparent 40%),
-    radial-gradient(circle at 50% 80%, rgba(240, 222, 196, 0.5), transparent 50%);
-  animation: floatingGlow 14s ease-in-out infinite alternate;
-  filter: blur(40px);
+    radial-gradient(circle at 15% 50%, rgba(212, 163, 115, 0.12), transparent 45%),
+    radial-gradient(circle at 85% 30%, rgba(156, 102, 68, 0.15), transparent 45%),
+    radial-gradient(circle at 50% 80%, rgba(227, 188, 154, 0.08), transparent 50%);
+  animation: floatingGlow 15s ease-in-out infinite alternate;
+  filter: blur(50px);
 }
 
 @keyframes floatingGlow {
@@ -86,16 +89,16 @@ main,
   margin: 0 auto;
 }
 
-/* Menú de navegación cristalino */
+/* Menú de navegación de cristal ahumado */
 .site-header {
   position: sticky;
   top: 0;
   z-index: 10;
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
-  background: rgba(252, 249, 245, 0.7);
-  /* Crema con transparencia */
-  border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  background: rgba(31, 22, 18, 0.6);
+  /* Color espresso semitransparente */
+  border-bottom: 1px solid var(--line);
 }
 
 .nav-wrap {
@@ -132,8 +135,9 @@ main,
 
 .nav-links a:hover,
 .nav-links a.active {
-  color: var(--accent);
-  background: rgba(196, 123, 89, 0.1);
+  color: var(--text);
+  background: rgba(212, 163, 115, 0.15);
+  /* Fondo hover sutil caramelo */
 }
 
 main {
@@ -150,7 +154,7 @@ main {
 .hero h1 {
   font-size: clamp(2.5rem, 6vw, 4rem);
   line-height: 1.1;
-  color: var(--text);
+  color: var(--accent-soft);
 }
 
 .hero p {
@@ -169,13 +173,13 @@ main {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-/* Efecto Glassmorphism para las tarjetas */
+/* Tarjetas con efecto vidrio ahumado (Smoked Glass) */
 .card,
 .section-tile,
 .list li {
   background: var(--card);
-  backdrop-filter: blur(16px);
-  -webkit-backdrop-filter: blur(16px);
+  backdrop-filter: blur(20px);
+  -webkit-backdrop-filter: blur(20px);
   border: 1px solid var(--line);
   border-radius: 24px;
   padding: 1.8rem;
@@ -189,7 +193,7 @@ main {
 }
 
 .note {
-  border-left: 3px solid var(--accent-soft);
+  border-left: 3px solid var(--accent);
   padding-left: 1rem;
   color: var(--muted);
   font-style: italic;
@@ -224,9 +228,11 @@ main {
 
 .section-tile:hover {
   transform: translateY(-12px);
-  box-shadow: 0 20px 40px rgba(196, 123, 89, 0.2);
-  background: rgba(255, 255, 255, 0.85);
-  border-color: #fff;
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  background: rgba(245, 235, 224, 0.08);
+  /* Se ilumina un poco al pasar el mouse */
+  border-color: rgba(212, 163, 115, 0.6);
+  /* Borde caramelo más marcado */
 }
 
 .section-tile:hover h2 {
