@@ -67,3 +67,44 @@ function formatTime(seconds) {
   if (partSeconds < 10) { partSeconds = `0${partSeconds}`; }
   return `${minutes}:${partSeconds}`;
 }
+
+document.addEventListener('DOMContentLoaded', () => {
+
+  const revealElements = document.querySelectorAll('.card, .list li');
+
+  const revealObserver = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: "0px 0px -50px 0px"
+  });
+
+  revealElements.forEach((el) => {
+    revealObserver.observe(el);
+  });
+
+  const titleElement = document.getElementById('typewriter');
+
+  if (titleElement) {
+    const textToType = titleElement.innerText;
+    titleElement.innerText = '';
+    let i = 0;
+
+    function typeWriter() {
+      if (i < textToType.length) {
+        titleElement.innerHTML += textToType.charAt(i);
+        i++;
+        setTimeout(typeWriter, 100);
+        setTimeout(() => {
+          titleElement.style.borderRight = 'none';
+        }, 2000);
+      }
+    }
+
+    setTimeout(typeWriter, 500);
+  }
+});

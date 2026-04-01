@@ -320,3 +320,52 @@ main {
     padding: 1rem 0;
   }
 }
+
+.card,
+.list li {
+  opacity: 0;
+  transform: translateY(40px);
+  transition: opacity 0.8s ease-out, transform 0.8s ease-out, box-shadow 0.3s ease, border-color 0.3s ease;
+}
+
+.card.visible,
+.list li.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+.card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border-color: rgba(212, 163, 115, 0.6);
+  background: rgba(245, 235, 224, 0.08);
+}
+
+#typewriter {
+  border-right: 3px solid var(--accent);
+  white-space: nowrap;
+  overflow: hidden;
+  margin: 0 auto;
+  padding-right: 5px;
+  animation: blink-cursor 0.7s step-end infinite;
+}
+
+@media (max-width: 500px) {
+  #typewriter {
+    white-space: normal;
+    border-right: none;
+    animation: none;
+  }
+}
+
+@keyframes blink-cursor {
+
+  from,
+  to {
+    border-color: transparent
+  }
+
+  50% {
+    border-color: var(--accent);
+  }
+}
