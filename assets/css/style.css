@@ -1,21 +1,12 @@
 :root {
-  /* Paleta "Coffee Aesthetic" (Dark Mode Elegante) */
   --bg: #1f1612;
-  /* Fondo color café espresso muy oscuro */
   --card: rgba(245, 235, 224, 0.04);
-  /* Cristal ahumado con un levísimo toque crema */
   --line: rgba(212, 163, 115, 0.25);
-  /* Líneas color caramelo suave */
   --text: #f5ebe0;
-  /* Texto color espuma de leche (casi blanco, pero cálido) */
   --muted: #a89585;
-  /* Texto secundario color café con leche */
   --accent: #d4a373;
-  /* Tono avellana / caramelo principal */
   --accent-soft: #faedcd;
-  /* Tono más claro para detalles sutiles */
   --shadow: 0 15px 40px rgba(0, 0, 0, 0.4);
-  /* Sombra más oscura para dar profundidad */
 }
 
 * {
@@ -38,7 +29,6 @@ body {
   overflow-x: hidden;
 }
 
-/* Títulos más elegantes */
 h1,
 h2,
 h3,
@@ -47,7 +37,6 @@ h3,
   font-weight: 700;
 }
 
-/* Animación de fondo: Luces tenues color caramelo ahumado */
 .bg-animation {
   position: fixed;
   inset: -20vmax;
@@ -89,7 +78,6 @@ main,
   margin: 0 auto;
 }
 
-/* Menú de navegación de cristal ahumado */
 .site-header {
   position: sticky;
   top: 0;
@@ -97,7 +85,6 @@ main,
   backdrop-filter: blur(16px);
   -webkit-backdrop-filter: blur(16px);
   background: rgba(31, 22, 18, 0.6);
-  /* Color espresso semitransparente */
   border-bottom: 1px solid var(--line);
 }
 
@@ -137,7 +124,6 @@ main,
 .nav-links a.active {
   color: var(--text);
   background: rgba(212, 163, 115, 0.15);
-  /* Fondo hover sutil caramelo */
 }
 
 main {
@@ -173,7 +159,6 @@ main {
   grid-template-columns: repeat(2, minmax(0, 1fr));
 }
 
-/* Tarjetas con efecto vidrio ahumado (Smoked Glass) */
 .card,
 .section-tile,
 .list li {
@@ -206,7 +191,6 @@ main {
   margin-bottom: 2rem;
 }
 
-/* Animación "Bouncy" para los cuadros principales */
 .section-tile {
   text-decoration: none;
   color: var(--text);
@@ -230,9 +214,7 @@ main {
   transform: translateY(-12px);
   box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
   background: rgba(245, 235, 224, 0.08);
-  /* Se ilumina un poco al pasar el mouse */
   border-color: rgba(212, 163, 115, 0.6);
-  /* Borde caramelo más marcado */
 }
 
 .section-tile:hover h2 {
@@ -283,11 +265,9 @@ main {
   opacity: 1;
 }
 
-/* --- ESTILOS DEL REPRODUCTOR PERSONALIZADO --- */
 
 .custom-audio-player {
   background: rgba(245, 235, 224, 0.08);
-  /* Fondo semi-transparente como el de la imagen de referencia */
   border-radius: 16px;
   padding: 1rem;
   margin-top: 1.5rem;
@@ -302,15 +282,12 @@ main {
   gap: 1rem;
 }
 
-/* El botón de Play Aesthetic */
 .play-btn {
   background-color: #fff;
-  /* Fondo blanco puro */
   border: none;
   width: 45px;
   height: 45px;
   border-radius: 50%;
-  /* Lo hace redondo */
   cursor: pointer;
   display: flex;
   justify-content: center;
@@ -321,35 +298,26 @@ main {
 
 .play-btn:hover {
   transform: scale(1.05);
-  /* Se agranda un poco al pasar el mouse */
   box-shadow: 0 6px 15px rgba(212, 163, 115, 0.4);
-  /* Sombra de color caramelo */
 }
 
-/* El icono dentro del botón */
 .play-icon {
   color: var(--bg);
-  /* Color oscuro del fondo de la página para el icono */
   font-size: 1.3rem;
   margin-left: 3px;
-  /* Pequeño ajuste para centrar visualmente el triángulo */
 }
 
-/* La barra de progreso */
 .seek-bar {
   flex-grow: 1;
-  /* Ocupa el espacio restante */
   -webkit-appearance: none;
   appearance: none;
   background: rgba(255, 255, 255, 0.2);
-  /* Pista de la barra */
   height: 6px;
   border-radius: 5px;
   outline: none;
   cursor: pointer;
 }
 
-/* El "puntero" de la barra */
 .seek-bar::-webkit-slider-thumb {
   -webkit-appearance: none;
   appearance: none;
@@ -357,13 +325,11 @@ main {
   height: 14px;
   border-radius: 50%;
   background: var(--accent);
-  /* Color caramelo */
   cursor: pointer;
   border: 2px solid #fff;
   box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
 }
 
-/* Tiempos */
 .time-display {
   color: var(--muted);
   font-size: 0.9rem;
