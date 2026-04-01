@@ -13,9 +13,11 @@
 </head>
 
 <body>
+    <div class="bg-animation" aria-hidden="true"></div>
+
     <header class="site-header">
         <div class="container nav-wrap">
-            <a href="index.html" class="brand">Are you stupid?</a>
+            <a href="index.html" class="brand">Melanie</a>
             <nav aria-label="principal">
                 <ul class="nav-links">
                     <li><a href="index.html">Inicio</a></li>
@@ -31,23 +33,40 @@
     <main>
         <div class="container">
             <section class="hero">
-                <h1>Un rincón personal, cálido y aesthetic para guardar lo que importa.</h1>
+                <h1>Tu inicio con cuadros, fotos y un fondo con vida ✨</h1>
                 <p>
-                    Dejé una base limpia y ordenada para que puedas ir agregando fotos, frases, playlists y notas.
-                    Tomé inspiración en tu estilo: tonos oscuros, café, lectura, música y recuerdos en formato íntimo.
+                    Tal como pediste: en esta portada hay cuadros clickeables que te llevan directo a cada sección,
+                    además de un fondo animado suave para que se vea más lindo.
                 </p>
             </section>
 
-            <section class="grid cols-2">
-                <article class="card">
-                    <h2>Estructura nueva</h2>
-                    <p class="note">Separé estilos, scripts y páginas para que sea fácil de mantener y ampliar.</p>
-                </article>
-                <article class="card">
-                    <h2>Siguiente paso</h2>
-                    <p class="note">Cuando quieras, conectamos una galería real y un reproductor de Spotify/YouTube.</p>
-                </article>
+            <section class="tiles-grid" aria-label="Secciones rápidas">
+                <a class="section-tile" href="pages/recuerdos.html">
+                    <h2>Recuerdos</h2>
+                    <p>Momentos, viajes y fotos especiales.</p>
+                </a>
+                <a class="section-tile" href="pages/gustos.html">
+                    <h2>Gustos</h2>
+                    <p>Cosas que te inspiran y te representan.</p>
+                </a>
+                <a class="section-tile" href="pages/notas.html">
+                    <h2>Notas</h2>
+                    <p>Ideas rápidas, frases y pendientes.</p>
+                </a>
+                <a class="section-tile" href="pages/canciones.html">
+                    <h2>Canciones</h2>
+                    <p>Tu soundtrack personal del momento.</p>
+                </a>
             </section>
+
+            <section class="upload card" id="fotos-inicio">
+                <h2>Subir fotos al inicio</h2>
+                <p class="note">Puedes cargar imágenes y se mostrarán como cuadros debajo. Se guardan en este navegador.</p>
+                <label for="photoUpload" class="upload-label">Elegir fotos</label>
+                <input id="photoUpload" type="file" accept="image/*" multiple />
+            </section>
+
+            <section id="photoGallery" class="photo-grid" aria-live="polite"></section>
         </div>
     </main>
 
