@@ -369,3 +369,35 @@ main {
     border-color: var(--accent);
   }
 }
+
+.summary-btn-container {
+  display: flex;
+  justify-content: center;
+  margin-top: 3rem;        
+  margin-bottom: 2rem;    
+}
+
+.btn-summary {
+  display: inline-block;
+  background: rgba(245, 235, 224, 0.05);
+  color: var(--accent);
+  border: 1px solid var(--line);
+  padding: 0.7rem 1.5rem;
+  border-radius: 999px;
+  text-decoration: none;
+  font-family: 'Inter', system-ui, sans-serif;
+  font-size: 0.9rem;
+  font-weight: 600;
+  transition: all 0.3s ease;
+  backdrop-filter: blur(10px);
+  -webkit-backdrop-filter: blur(10px);
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+.btn-summary:hover {
+  background: var(--accent);
+  color: var(--bg);
+  border-color: var(--accent);
+  transform: translateY(-3px);
+  box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
+}
