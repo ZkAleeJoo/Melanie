@@ -435,8 +435,11 @@ body main {
 }
 
 
+/* =========================================
+   CURSOR PERSONALIZADO
+   ========================================= */
 @media (min-width: 768px) {
-  body, a, button {
+  * {
     cursor: none !important;
   }
 }
@@ -447,7 +450,7 @@ body main {
   background-color: var(--accent);
   border-radius: 50%;
   position: fixed;
-  pointer-events: none;
+  pointer-events: none; 
   z-index: 9999;
   transform: translate(-50%, -50%);
   box-shadow: 0 0 10px var(--accent);
@@ -456,13 +459,13 @@ body main {
 .cursor-outline {
   width: 30px;
   height: 30px;
-  border: 1px solid var(--line);
+  border: 1px solid var(--accent); 
   border-radius: 50%;
   position: fixed;
   pointer-events: none;
   z-index: 9998;
   transform: translate(-50%, -50%);
-  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+  transition: left 0.1s ease-out, top 0.1s ease-out, width 0.2s ease, height 0.2s ease, background-color 0.2s ease, transform 0.1s ease;
 }
 
 

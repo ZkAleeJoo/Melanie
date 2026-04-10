@@ -204,17 +204,23 @@ if (window.matchMedia("(min-width: 768px)").matches) {
     dot.style.left = `${e.clientX}px`;
     dot.style.top = `${e.clientY}px`;
     
-    setTimeout(() => {
-      outline.style.left = `${e.clientX}px`;
-      outline.style.top = `${e.clientY}px`;
-    }, 60);
+    outline.style.left = `${e.clientX}px`;
+    outline.style.top = `${e.clientY}px`;
+  });
+
+  window.addEventListener('mousedown', () => {
+    outline.style.transform = 'translate(-50%, -50%) scale(0.7)';
+  });
+  
+  window.addEventListener('mouseup', () => {
+    outline.style.transform = 'translate(-50%, -50%) scale(1)';
   });
 
   document.querySelectorAll('a, button').forEach(el => {
     el.addEventListener('mouseenter', () => {
       outline.style.width = '45px';
       outline.style.height = '45px';
-      outline.style.backgroundColor = 'rgba(212, 163, 115, 0.1)'; 
+      outline.style.backgroundColor = 'rgba(212, 163, 115, 0.15)'; 
     });
     el.addEventListener('mouseleave', () => {
       outline.style.width = '30px';
