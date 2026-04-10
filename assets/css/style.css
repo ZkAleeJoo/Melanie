@@ -417,3 +417,60 @@ main {
   color: rgba(212, 163, 115, 0.8);
   filter: drop-shadow(0 0 8px rgba(212, 163, 115, 0.6));
 }
+
+
+body main {
+  animation: smoothLoad 0.8s cubic-bezier(0.25, 1, 0.5, 1) forwards;
+}
+
+@keyframes smoothLoad {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+
+@media (min-width: 768px) {
+  body, a, button {
+    cursor: none !important;
+  }
+}
+
+.cursor-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--accent);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9999;
+  transform: translate(-50%, -50%);
+  box-shadow: 0 0 10px var(--accent);
+}
+
+.cursor-outline {
+  width: 30px;
+  height: 30px;
+  border: 1px solid var(--line);
+  border-radius: 50%;
+  position: fixed;
+  pointer-events: none;
+  z-index: 9998;
+  transform: translate(-50%, -50%);
+  transition: width 0.2s ease, height 0.2s ease, background-color 0.2s ease;
+}
+
+
+article img {
+  transition: transform 0.6s cubic-bezier(0.165, 0.84, 0.44, 1), box-shadow 0.6s ease;
+}
+
+article img:hover {
+  transform: scale(1.02) translateY(-5px);
+  box-shadow: 0 15px 30px rgba(212, 163, 115, 0.2) !important; 
+}

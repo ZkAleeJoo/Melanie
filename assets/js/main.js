@@ -190,3 +190,36 @@ function initFloatingBottles() {
 }
 
 window.addEventListener('DOMContentLoaded', initFloatingBottles);
+
+if (window.matchMedia("(min-width: 768px)").matches) {
+  const dot = document.createElement('div');
+  dot.className = 'cursor-dot';
+  const outline = document.createElement('div');
+  outline.className = 'cursor-outline';
+  
+  document.body.appendChild(dot);
+  document.body.appendChild(outline);
+
+  window.addEventListener('mousemove', (e) => {
+    dot.style.left = `${e.clientX}px`;
+    dot.style.top = `${e.clientY}px`;
+    
+    setTimeout(() => {
+      outline.style.left = `${e.clientX}px`;
+      outline.style.top = `${e.clientY}px`;
+    }, 60);
+  });
+
+  document.querySelectorAll('a, button').forEach(el => {
+    el.addEventListener('mouseenter', () => {
+      outline.style.width = '45px';
+      outline.style.height = '45px';
+      outline.style.backgroundColor = 'rgba(212, 163, 115, 0.1)'; 
+    });
+    el.addEventListener('mouseleave', () => {
+      outline.style.width = '30px';
+      outline.style.height = '30px';
+      outline.style.backgroundColor = 'transparent';
+    });
+  });
+}
