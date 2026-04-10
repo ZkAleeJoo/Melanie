@@ -401,3 +401,19 @@ main {
   transform: translateY(-3px);
   box-shadow: 0 8px 20px rgba(212, 163, 115, 0.3);
 }
+
+.floating-bottle {
+  position: fixed;
+  top: 0;
+  left: 0;
+  pointer-events: none;
+  z-index: 5; 
+  color: rgba(212, 163, 115, 0.3);
+  width: 35px;
+  height: 35px;
+}
+
+.floating-bottle.active {
+  color: rgba(212, 163, 115, 0.8);
+  filter: drop-shadow(0 0 8px rgba(212, 163, 115, 0.6));
+}
